@@ -1,0 +1,46 @@
+
+include: package:pedantic_mono/analysis_options.yaml
+
+linter:
+  rules:
+    - camel_case_types
+    - cancel_subscriptions
+    - hash_and_equals
+    - package_api_docs
+    - provide_deprecation_message
+
+analyzer:
+  strong-mode:
+      implicit-casts: false
+      implicit-dynamic: false
+  plugins:
+    - dart_code_metrics
+  exclude:
+    - lib/data/backend/api/generated/**.dart
+    - lib/**/*.g.dart
+    - lib/**/*.freezed.dart
+  errors:
+    camel_case_types: warning
+    empty_constructor_bodies: warning
+    hash_and_equals: warning
+    null_closures: warning
+    one_member_abstracts: warning
+    unnecessary_new: warning
+    prefer_single_quotes: ignore
+    sort_constructors_first: ignore
+    lines_longer_than_80_chars: ignore
+    use_setters_to_change_properties: ignore
+    comment_references: ignore
+    avoid_setters_without_getters: ignore
+
+
+# https://github.com/wrike/dart-code-metrics
+dart_code_metrics:
+  metrics-exclude:
+    - lib/*.dart
+    - lib/**/*.dart
+    - test/*.dart
+    - test/**/*.dart
+  rules:
+    - prefer-trailing-comma
+    - prefer-trailing-comma-for-collection
